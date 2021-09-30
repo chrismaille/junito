@@ -6,7 +6,7 @@ test:
 	@poetry run pytest -v -x -p no:warnings --cov-report term-missing --cov=./junito
 
 ci:
-	@poetry run pytest --cov=./stela
+	@poetry run pytest --cov=./junito
 
 format:
 	@poetry run black .
