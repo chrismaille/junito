@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.0 (2021-09-30)
+### Feature
+* Add Check for Error/Failed and/or Skipped Tests ([`0edf92a`](https://github.com/chrismaille/junito/commit/0edf92af2c20c6dc34ef6e2c02765b050da3783f))
+
 ## v1.0.5 (2021-09-30)
 ### Fix
 * Remove virtualenv inside container ([`b33213a`](https://github.com/chrismaille/junito/commit/b33213a54ac5ce2aba4e42d2d519219a52a12e83))
