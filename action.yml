@@ -1,4 +1,4 @@
-name: 'Junito'
+name: 'junito-xml'
 author: 'Chris Maillefaud'
 description: 'Parse and logs JUnit XML reports'
 branding:

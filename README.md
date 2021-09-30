@@ -15,7 +15,7 @@ Just Add the Action, with the name for the generated JUnit report:
 
 ```yml
 - name: Check for failed Tests
-  uses: chrismaille/junito@v1
+  uses: chrismaille/junito-xml@v1
   with:
     filename: my-junit-report.xml
 ```
@@ -54,5 +54,5 @@ jobs:
       - runs: |
           poetry run pytest --cov=. --cov-report xml --junit-xml=test-report.xml || true
       - name: Check Failed Tests
--       uses: chrismaille/junito@v1
+-       uses: chrismaille/junito-xml@v1
 ```
