@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.2 (2021-09-30)
+### Fix
+* Better text formatting in console ([`493c5da`](https://github.com/chrismaille/junito/commit/493c5da221b68b3d3d8748b951943b6ad3f351b1))
+
+### Documentation
+* [skip-ci] Update README.md ([`0408e6c`](https://github.com/chrismaille/junito/commit/0408e6cf483c8f75fb4685e0adc6598e14b939f8))
+
 ## v1.1.1 (2021-09-30)
 ### Fix
 * Docker install issues ([`8908f44`](https://github.com/chrismaille/junito/commit/8908f4424b462462c11fd14b799284628f2e1fda))
