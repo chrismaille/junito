@@ -27,9 +27,9 @@ def check(filename, stop_on_failed, stop_on_skipped):
     """Check Pytest Junit Report for errors."""
     pytest_report = JUnitXml.fromfile(filename)
 
-    click.echo(f"\nReading file:               {filename}")
-    click.echo(f"Stop on Error/Failed Tests: {stop_on_failed}")
-    click.echo(f"Stop on Skipped Tests:      {stop_on_skipped}\n")
+    click.echo(f"\nReading file ................ {filename}")
+    click.echo(f"Stop on Error/Failed Tests .. {stop_on_failed}")
+    click.echo(f"Stop on Skipped Tests ....... {stop_on_skipped}\n")
 
     checker = Junito(report=pytest_report)
     checker.process()
@@ -45,9 +45,9 @@ def check(filename, stop_on_failed, stop_on_skipped):
             f"{checker.skipped_tests} skipped tests" if checker.skipped_tests else "",
         )
     else:
-        label = "Failure"
-        color = "red"
-        message = "Success: No failed tests found"
+        label = "Success"
+        color = "green"
+        message = "No failed tests found"
 
     click.echo(click.style(f"\n{label}: {message}.", fg=color))
     sys.exit(exit_code)
