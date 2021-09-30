@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.1 (2021-09-30)
+### Fix
+* Docker install issues ([`8908f44`](https://github.com/chrismaille/junito/commit/8908f4424b462462c11fd14b799284628f2e1fda))
+
 ## v1.1.0 (2021-09-30)
 ### Feature
 * Add Check for Error/Failed and/or Skipped Tests ([`0edf92a`](https://github.com/chrismaille/junito/commit/0edf92af2c20c6dc34ef6e2c02765b050da3783f))
