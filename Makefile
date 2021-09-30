@@ -13,3 +13,6 @@ format:
 
 pre-commit:
 	@poetry run pre-commit run --all
+
+action:
+	docker build --tag=junito:dev . && docker run junito:dev "./tests/fixtures/test-report.xml" "true" "false"

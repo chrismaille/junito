@@ -45,10 +45,10 @@ def test_message_stats(test_report, capfd):
 
     # Assert
     assert "Total Tests: 8" in out
-    assert "Failures: 1" in out
-    assert "Errors: 0" in out
-    assert "Skipped: 2" in out
-    assert "Time: 21.125" in out
+    assert "Failures:    1" in out
+    assert "Errors:      0" in out
+    assert "Skipped:     2" in out
+    assert "Time:        21.125" in out
 
 
 def test_get_text(test_report, capfd):

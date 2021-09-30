@@ -28,16 +28,18 @@ class Junito:
         """Show Report main stats per Test Suite."""
         self.failed_tests += suite.errors + suite.failures
         self.skipped_tests += suite.skipped
-        self.show_message(f"Suite: {suite.name.title()}", "blue")
+        self.show_message(f"Suite:       {suite.name.title()}", "blue")
         self.show_message(f"Total Tests: {suite.tests}")
-        self.show_message(f"Errors: {suite.errors}", "red" if suite.errors else "green")
         self.show_message(
-            f"Failures: {suite.failures}", "red" if suite.failures else "green"
+            f"Errors:      {suite.errors}", "red" if suite.errors else "green"
         )
         self.show_message(
-            f"Skipped: {suite.skipped}", "yellow" if suite.skipped else "green"
+            f"Failures:    {suite.failures}", "red" if suite.failures else "green"
         )
-        self.show_message(f"Time: {suite.time}\n", "white")
+        self.show_message(
+            f"Skipped:     {suite.skipped}", "yellow" if suite.skipped else "green"
+        )
+        self.show_message(f"Time:        {suite.time}\n", "white")
 
     @staticmethod
     def get_text(result: Result) -> Tuple[str, str, str]:

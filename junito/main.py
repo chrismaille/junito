@@ -26,7 +26,11 @@ from junito.junito import Junito
 def check(filename, stop_on_failed, stop_on_skipped):
     """Check Pytest Junit Report for errors."""
     pytest_report = JUnitXml.fromfile(filename)
-    click.echo(f"\nReading file: {filename}...\n")
+
+    click.echo(f"\nReading file:               {filename}")
+    click.echo(f"Stop on Error/Failed Tests: {stop_on_failed}")
+    click.echo(f"Stop on Skipped Tests:      {stop_on_skipped}\n")
+
     checker = Junito(report=pytest_report)
     checker.process()
 
