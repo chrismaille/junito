@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.4 (2021-09-30)
+### Fix
+* Update README.md ([`5d7f82e`](https://github.com/chrismaille/junito/commit/5d7f82e01647f55f1627fd1b846bda2d40a899dc))
+
 ## v1.0.3 (2021-09-30)
 ### Fix
 * Missing chmod in entrypoint.sh ([`61aadd9`](https://github.com/chrismaille/junito/commit/61aadd904f2063427fd9ac8bb8d7f182d099fdd8))
