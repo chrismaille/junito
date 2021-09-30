@@ -34,7 +34,7 @@ ensure_newline_before_comments = true
 
 [tool.poetry]
 name = "junito"
-version = "1.0.0"
+version = "1.0.1"
 description = "Parse and logs JUnit report files in Github Action"
 authors = ["Chris Maillefaud <chrismaillefaud@gmail.com>"]
 
