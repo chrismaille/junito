@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="2" tests="8" time="21.125" timestamp="2021-09-30T14:21:44.368636" hostname="c723af8df430"><testcase classname="transactional_risk.tests.test_views" name="test_health_check_view" time="3.047" /><testcase classname="transactional_risk.tests.test_views" name="test_user_view" time="0.212" /><testcase classname="transactional_risk.tests.test_views" name="test_get_transactional_risk" time="0.087"><failure message="transactional_risk.models.TransactionalRisk.DoesNotExist: TransactionalRisk matching query does not exist.">client = &lt;django.test.client.Client object at 0x7fd7b28bef40&gt;
+requests_mock = &lt;requests_mock.mocker.Mocker object at 0x7fd7b3448a90&gt;
+authenticated_user_data = {'user': {'email': 'user@a55.tech', 'groups': ['admin', 'staff'], 'id': 123, 'token': '123-abc', ...}}
+
+&gt;   ???
+
+/mnt/d/Projects/a55/transactional_risk/transactional_risk/tests/test_views.py:52:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+/usr/local/lib/python3.8/site-packages/django/db/models/manager.py:85: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;QuerySet []&gt;, args = (), kwargs = {'tax_id': '123456'}, clone = &lt;QuerySet []&gt;, limit = 21
+num = 0
+
+    def get(self, *args, **kwargs):
+        """
+        Perform the query and return a single object matching the given
+        keyword arguments.
+        """
+        if self.query.combinator and (args or kwargs):
+            raise NotSupportedError(
+                'Calling QuerySet.get(...) with filters after %s() is not '
+                'supported.' % self.query.combinator
+            )
+        clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+        if self.query.can_filter() and not self.query.distinct_fields:
+            clone = clone.order_by()
+        limit = None
+        if not clone.query.select_for_update or connections[clone.db].features.supports_select_for_update_with_limit:
+            limit = MAX_GET_RESULTS
+            clone.query.set_limits(high=limit)
+        num = len(clone)
+        if num == 1:
+            return clone._result_cache[0]
+        if not num:
+&gt;           raise self.model.DoesNotExist(
+                "%s matching query does not exist." %
+                self.model._meta.object_name
+            )
+E           transactional_risk.models.TransactionalRisk.DoesNotExist: TransactionalRisk matching query does not exist.
+
+/usr/local/lib/python3.8/site-packages/django/db/models/query.py:435: DoesNotExist</failure></testcase><testcase classname="transactional_risk.tests.test_views" name="test_get_transactional_risk_no_partner_id" time="0.074" /><testcase classname="transactional_risk.tests.test_tasks" name="test_worker_health_check" time="0.238" /><testcase classname="transactional_risk.tests.test_tasks" name="test_running_worker_health_check" time="1.807" /><testcase classname="transactional_risk.tests.test_tasks" name="test_build_risk_task" time="0.890"><skipped type="pytest.xfail" message="" /></testcase><testcase classname="transactional_risk.tests.test_secrets" name="test_get_secrets" time="8.929"><skipped type="pytest.skip" message="Test Skip">/opt/project/transactional_risk/tests/test_secrets.py:10: Test Skip</skipped></testcase></testsuite></testsuites>

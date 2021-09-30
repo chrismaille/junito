@@ -1,0 +1,16 @@
+name: 'Junito'
+author: 'Chris Maillefaud'
+description: 'Parse and logs JUnit XML reports'
+branding:
+  icon: 'search'
+  color: 'orange'
+inputs:
+  filename:
+    description: 'JUnit Report filename'
+    required: false
+    default: 'test-report.xml'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.filename}}
