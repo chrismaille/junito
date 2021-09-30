@@ -14,7 +14,7 @@ it will return exit code 1.
 Just Add the Action, with the name for the generated JUnit report:
 
 ```yml
-- name: Check for failed Tests
+- name: Check Failed Tests
   uses: chrismaille/junito-xml@v1
   with:
     filename: my-junit-report.xml
