@@ -11,7 +11,8 @@ class Junito:
     """Process JUnit XML Report Files."""
 
     report: JUnitXml
-    block_issues: int = 0
+    failed_tests: int = 0
+    skipped_tests: int = 0
 
     def process(self):
         for suite in self.report:
@@ -25,7 +26,8 @@ class Junito:
 
     def message_stats(self, suite: JUnitXml):
         """Show Report main stats per Test Suite."""
-        self.block_issues += suite.errors + suite.failures
+        self.failed_tests += suite.errors + suite.failures
+        self.skipped_tests += suite.skipped
         self.show_message(f"Suite: {suite.name.title()}", "blue")
         self.show_message(f"Total Tests: {suite.tests}")
         self.show_message(f"Errors: {suite.errors}", "red" if suite.errors else "green")
@@ -52,3 +54,12 @@ class Junito:
                 self.show_message(
                     f"* {label}: {case.classname}.{case.name}{message}", color
                 )
+
+    def get_exit_code(self, stop_on_failed: bool, stop_on_skipped: bool) -> int:
+        """Returns exit code, based on parameters."""
+        return int(
+            max(
+                stop_on_failed and self.failed_tests > 0,
+                stop_on_skipped and self.skipped_tests > 0,
+            )
+        )

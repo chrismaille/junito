@@ -53,6 +53,7 @@ junito = 'junito.main:check'
 python = "^3.8"
 junitparser = "*"
 click = "*"
+asbool = "*"
 
 [tool.poetry.dev-dependencies]
 bandit = "*"

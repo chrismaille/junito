@@ -3,14 +3,24 @@ author: 'Chris Maillefaud'
 description: 'Parse and logs JUnit XML reports'
 branding:
   icon: 'search'
-  color: 'orange'
+  color: 'blue'
 inputs:
   filename:
     description: 'JUnit Report filename'
     required: false
     default: 'test-report.xml'
+  stop_on_failed:
+    description: 'Returns Exit Code 1 if find Error/Failed tests'
+    required: false
+    default: 'true'
+  stop_on_skipped:
+    description: 'Returns Exit Code 1 if find Error/Failed test'
+    required: false
+    default: 'false'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.filename}}
+    - ${{ inputs.filename }}
+    - ${{ inputs.stop_on_failed }}
+    - ${{ inputs.stop_on_skipped }}

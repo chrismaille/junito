@@ -6,8 +6,8 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
-This Action parses and logs JUnit report results in Actions console. If any error of failed tests are found,
-it will return exit code 1.
+This Action parses and logs JUnit report results in Actions console. You can define if Action will stop for
+failed and or skipped tests.
 
 ### Usage
 
@@ -18,6 +18,8 @@ Just Add the Action, with the name for the generated JUnit report:
   uses: chrismaille/junito@v1
   with:
     filename: my-junit-report.xml
+    stop_on_errors: true     # stops if find any error/failed tests
+    stop_on_skipped: false   # stops if find any skipped test
 ```
 
 ### Defaults
@@ -26,6 +28,8 @@ Current default settings are:
 
 ```yaml
 filename: test-report.xml
+stop_on_failed: true
+stop_on_skipped: false
 ```
 
 ### Workflow Example:
@@ -53,6 +57,7 @@ jobs:
       - name: Generate XML report
       - runs: |
           poetry run pytest --cov=. --cov-report xml --junit-xml=test-report.xml || true
+      # Will test against test-report.xml and stops at any failed/error test found.
       - name: Check Failed Tests
--       uses: chrismaille/junito@v1
+        uses: chrismaille/junito@v1
 ```

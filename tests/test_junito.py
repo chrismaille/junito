@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import pytest
 from click.testing import CliRunner
 
 from junito.junito import Junito
@@ -85,13 +86,22 @@ def test_show_issues(test_report, capfd):
     assert out.count("MESSAGE") == 1
 
 
-def test_runner():
+@pytest.mark.parametrize(
+    "stop_on_errors, stop_on_skipped, expected_exit_code",
+    [
+        ("true", "false", 1),
+        ("true", "true", 1),
+        ("false", "true", 1),
+        ("false", "false", 0),
+    ],
+)
+def test_runner(stop_on_errors, stop_on_skipped, expected_exit_code):
     # Arrange
     runner = CliRunner()
     filename = Path().joinpath("tests", "fixtures", "test-report.xml")
 
     # Act
-    result = runner.invoke(check, [str(filename)])
+    result = runner.invoke(check, [str(filename), stop_on_errors, stop_on_skipped])
 
     # Assert
-    assert result.exit_code == 1
+    assert result.exit_code == expected_exit_code

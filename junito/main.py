@@ -13,6 +13,7 @@
 import sys
 
 import click
+from asbool import asbool
 from junitparser import JUnitXml
 
 from junito.junito import Junito
@@ -20,18 +21,29 @@ from junito.junito import Junito
 
 @click.command()
 @click.argument("filename", type=click.Path(exists=True))
-def check(filename):
+@click.argument("stop_on_failed")
+@click.argument("stop_on_skipped")
+def check(filename, stop_on_failed, stop_on_skipped):
     """Check Pytest Junit Report for errors."""
     pytest_report = JUnitXml.fromfile(filename)
     click.echo(f"\nReading file: {filename}...\n")
     checker = Junito(report=pytest_report)
     checker.process()
 
-    if checker.block_issues > 0:
-        click.echo(
-            click.style(
-                f"\nFailure: Found {checker.block_issues} failed tests.", fg="red"
-            )
+    exit_code = checker.get_exit_code(asbool(stop_on_failed), asbool(stop_on_skipped))
+
+    if exit_code:
+        label = "Failure"
+        color = "red"
+        message = "Found {}{}{}.".format(
+            f"{checker.failed_tests} failed tests" if checker.failed_tests else "",
+            " and " if checker.failed_tests and checker.skipped_tests else "",
+            f"{checker.skipped_tests} skipped tests" if checker.skipped_tests else "",
         )
-        sys.exit(1)
-    click.echo(click.style("\nSuccess: No failed tests found.", fg="green"))
+    else:
+        label = "Failure"
+        color = "red"
+        message = "Success: No failed tests found"
+
+    click.echo(click.style(f"\n{label}: {message}.", fg=color))
+    sys.exit(exit_code)

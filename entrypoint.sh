@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-python -m junito $1
+python -m junito $@
