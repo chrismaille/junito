@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.3 (2021-09-30)
+### Fix
+* Fix success message in console ([`4c546fb`](https://github.com/chrismaille/junito/commit/4c546fb418be822a3a32e449031aef7efe93b6f7))
+
 ## v1.1.2 (2021-09-30)
 ### Fix
 * Better text formatting in console ([`493c5da`](https://github.com/chrismaille/junito/commit/493c5da221b68b3d3d8748b951943b6ad3f351b1))
