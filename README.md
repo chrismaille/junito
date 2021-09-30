@@ -18,8 +18,8 @@ Just Add the Action, with the name for the generated JUnit report:
   uses: chrismaille/junito@v1
   with:
     filename: my-junit-report.xml
-    stop_on_errors: true     # stops if find any error/failed tests
-    stop_on_skipped: false   # stops if find any skipped test
+    stop_on_errors: true     # stops at any error/failed tests found
+    stop_on_skipped: false   # stops at any skipped test found
 ```
 
 ### Defaults
