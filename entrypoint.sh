@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-poetry run junito $1 $2
+poetry run junito $1

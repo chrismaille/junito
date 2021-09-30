@@ -6,7 +6,8 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
-This Action parses and logs JUnit report results in console.
+This Action parses and logs JUnit report results in Actions console. If any error of failed tests are found,
+it will return exit code 1.
 
 ### Usage
 
