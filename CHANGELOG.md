@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.5 (2021-09-30)
+### Fix
+* Remove virtualenv inside container ([`b33213a`](https://github.com/chrismaille/junito/commit/b33213a54ac5ce2aba4e42d2d519219a52a12e83))
+
 ## v1.0.4 (2021-09-30)
 ### Fix
 * Update README.md ([`5d7f82e`](https://github.com/chrismaille/junito/commit/5d7f82e01647f55f1627fd1b846bda2d40a899dc))
