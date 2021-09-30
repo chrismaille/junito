@@ -39,7 +39,7 @@ description = "Parse and logs JUnit report files in Github Action"
 authors = ["Chris Maillefaud <chrismaillefaud@gmail.com>"]
 
 [tool.semantic_release]
-version_variable = ["main/__init__.py:__version__", "pyproject.toml:version"]
+version_variable = ["junito/__init__.py:__version__", "pyproject.toml:version"]
 branch = "main"
 upload_to_pypi = false
 upload_to_release = true
