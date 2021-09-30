@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-poetry run junito $1
+python -m junito $1
