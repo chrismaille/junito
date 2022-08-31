@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.2.0 (2022-08-31)
+### Feature
+* Update Python to 3.10 ([`fac6ef3`](https://github.com/chrismaille/junito/commit/fac6ef3ea175a7b0f7c1c224afd3fba978c48d42))
+
 ## v1.1.3 (2021-09-30)
 ### Fix
 * Fix success message in console ([`4c546fb`](https://github.com/chrismaille/junito/commit/4c546fb418be822a3a32e449031aef7efe93b6f7))
