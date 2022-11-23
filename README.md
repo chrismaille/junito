@@ -20,6 +20,7 @@ Just Add the Action, with the name for the generated JUnit report:
     filename: my-junit-report.xml
     stop_on_failed: true     # stops at any error/failed tests found
     stop_on_skipped: false   # stops at any skipped test found
+    stop_on_missing: true    # stops if JUnit report is missing
 ```
 
 ### Defaults
@@ -30,6 +31,7 @@ Current default settings are:
 filename: test-report.xml
 stop_on_failed: true
 stop_on_skipped: false
+stop_on_missing: true
 ```
 
 ### Workflow Example:

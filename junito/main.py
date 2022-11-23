@@ -10,6 +10,7 @@
     Pull Request workflow.
 
 """
+import os
 import sys
 
 import click
@@ -20,16 +21,30 @@ from junito.junito import Junito
 
 
 @click.command()
-@click.argument("filename", type=click.Path(exists=True))
+@click.argument("filename", type=click.Path())
 @click.argument("stop_on_failed")
 @click.argument("stop_on_skipped")
-def check(filename, stop_on_failed, stop_on_skipped):
+@click.argument("stop_on_missing")
+def check(filename, stop_on_failed, stop_on_skipped, stop_on_missing):
     """Check Pytest Junit Report for errors."""
-    pytest_report = JUnitXml.fromfile(filename)
 
     click.echo(f"\nReading file ................ {filename}")
     click.echo(f"Stop on Error/Failed Tests .. {stop_on_failed}")
-    click.echo(f"Stop on Skipped Tests ....... {stop_on_skipped}\n")
+    click.echo(f"Stop on Skipped Tests ....... {stop_on_skipped}")
+    click.echo(f"Stop on Missing XML file .... {stop_on_missing}\n")
+
+    # check if file exists
+    if not os.path.exists(filename):
+        exit_code = 1 if asbool(stop_on_missing) else 0
+        message = (
+            "Will stop Actions."
+            if asbool(stop_on_missing)
+            else "Will continue Actions."
+        )
+        click.echo(f"File {filename} was not found. {message}")
+        sys.exit(exit_code)
+
+    pytest_report = JUnitXml.fromfile(filename)
 
     checker = Junito(report=pytest_report)
     checker.process()

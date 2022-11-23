@@ -101,7 +101,28 @@ def test_runner(stop_on_errors, stop_on_skipped, expected_exit_code):
     filename = Path().joinpath("tests", "fixtures", "test-report.xml")
 
     # Act
-    result = runner.invoke(check, [str(filename), stop_on_errors, stop_on_skipped])
+    result = runner.invoke(
+        check, [str(filename), stop_on_errors, stop_on_skipped, "true"]
+    )
+
+    # Assert
+    assert result.exit_code == expected_exit_code
+
+
+@pytest.mark.parametrize(
+    "stop_on_missing, expected_exit_code",
+    [
+        ("true", 1),
+        ("false", 0),
+    ],
+)
+def test_missing_xml_file(stop_on_missing, expected_exit_code, capfd):
+    # Arrange
+    runner = CliRunner()
+    filename = Path().joinpath("tests", "fixtures", "missing.xml")
+
+    # Act
+    result = runner.invoke(check, [str(filename), "true", "true", stop_on_missing])
 
     # Assert
     assert result.exit_code == expected_exit_code

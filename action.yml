@@ -17,6 +17,10 @@ inputs:
     description: 'Returns Exit Code 1 if find Error/Failed test'
     required: false
     default: 'false'
+  stop_on_missing:
+    description: 'Returns Exit Code 1 if pytest xml file is not found'
+    required: false
+    default: 'true'
 runs:
   using: 'docker'
   image: 'Dockerfile'
