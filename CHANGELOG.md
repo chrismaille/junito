@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.3.0 (2022-11-23)
+### Feature
+* Add new option `stop_on_missing` ([`cd02f52`](https://github.com/chrismaille/junito/commit/cd02f5209d6188f7e32100280cedad0a7521cc6a))
+
 ## v1.2.0 (2022-08-31)
 ### Feature
 * Update Python to 3.10 ([`fac6ef3`](https://github.com/chrismaille/junito/commit/fac6ef3ea175a7b0f7c1c224afd3fba978c48d42))
