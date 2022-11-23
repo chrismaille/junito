@@ -28,3 +28,4 @@ runs:
     - ${{ inputs.filename }}
     - ${{ inputs.stop_on_failed }}
     - ${{ inputs.stop_on_skipped }}
+    - ${{ inputs.stop_on_missing }}
