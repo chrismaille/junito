@@ -2,7 +2,7 @@
 fail_under = 80
 
 [tool.black]
-target-version = ['py38']
+target-version = ['py311']
 include = '\.pyi?$'
 exclude = '''
 (
