@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v1.3.2 (2023-11-29)
+
+### Fix
+
+* Update lock file ([`f48916e`](https://github.com/chrismaille/junito/commit/f48916e330d4cdfb8e869ac6599f9a001210d5ad))
+* Update actions ([`4546feb`](https://github.com/chrismaille/junito/commit/4546febc30b5cd8db76919289d0a65a6e97be979))
+* Update python to 3.11 ([`411d801`](https://github.com/chrismaille/junito/commit/411d8018d635c108c83232a14b8ec1791ef643b3))
+
 ## v1.3.1 (2022-11-23)
 ### Fix
 * Add missing argument ([`f64aec1`](https://github.com/chrismaille/junito/commit/f64aec19c6a693d25ed429a5e61e0412a0687d67))
