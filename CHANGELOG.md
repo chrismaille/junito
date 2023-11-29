@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.3.1 (2022-11-23)
+### Fix
+* Add missing argument ([`f64aec1`](https://github.com/chrismaille/junito/commit/f64aec19c6a693d25ed429a5e61e0412a0687d67))
+
 ## v1.3.0 (2022-11-23)
 ### Feature
 * Add new option `stop_on_missing` ([`cd02f52`](https://github.com/chrismaille/junito/commit/cd02f5209d6188f7e32100280cedad0a7521cc6a))
