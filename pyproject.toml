@@ -50,7 +50,7 @@ major_on_zero = true
 junito = 'junito.main:check'
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.11"
 junitparser = "*"
 click = "*"
 asbool = "*"
